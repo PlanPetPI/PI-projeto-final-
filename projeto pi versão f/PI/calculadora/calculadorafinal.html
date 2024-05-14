@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Ração para Pets</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            min-height: 100vh;
+            background: url(grupo-de-animais-fofos-em-fundo-branco.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            width: 420px;
+            background: transparent;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            color: #000000;
+            border-radius: 10px;
+            padding: 30px 40px;
+
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #000000;
+        }
+
+        input,
+        select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #fffdfd;
+            border-radius: 4px;
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="input-field">
+        <div class="container">
+            <h1>Calculadora de Ração Planpet</h1>
+
+            <form id="petForm">
+                <label for="tipo_pet">Seu pet é cachorro ou gato?</label>
+                <select id="tipo_pet" name="tipo_pet" required>
+                    <option value="">Selecione uma opção</option>
+                    <option value="cachorro">Cachorro</option>
+                    <option value="gato">Gato</option>
+                </select>
+
+                <label for="idade">Qual a idade do seu pet (em anos)?</label>
+                <input type="number" id="idade" name="idade" min="0" step="any" required>
+
+                <label for="peso">Qual o peso do seu pet (em kg)?</label>
+                <input type="number" id="peso" name="peso" min="0" step="any" required>
+
+                <button type="submit">Calcular</button>
+            </form>
+            <div id="resultado"></div>
+        </div>
+
+        <script>
+            function calcularRacao(tipoPet, idade, peso) {
+                if (tipoPet === 'cachorro') {
+                    return idade < 1 ? peso * 40 : peso * 30;
+                } else if (tipoPet === 'gato') {
+                    return idade < 1 ? peso * 50 : peso * 20;
+                } else {
+                    return 0;
+                }
+            }
+
+            document.getElementById('petForm').onsubmit = function (event) {
+                event.preventDefault();
+                var tipoPet = document.getElementById('tipo_pet').value.toLowerCase();
+                var idade = parseFloat(document.getElementById('idade').value);
+                var peso = parseFloat(document.getElementById('peso').value);
+                var quantidadeRacao = calcularRacao(tipoPet, idade, peso);
+                document.getElementById('resultado').innerText = 'Você deve dar aproximadamente ' + quantidadeRacao.toFixed(0) + 'g de ração por dia para o seu ' + tipoPet + '.';
+            }
+        </script>
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Organizador gastos/css/style.css">
+    <title>Gastos</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="planpetpi.png" alt="">
+        </div>
+        <div class="form">
+            <form action="cadastro.php" method="get" autocomplete="on">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Garanta que seu pet tenha o melhor cuidado!! </h1>
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="veterinario">Veterinário</label>
+                        <input id="iv" type="number" name="veterinario" placeholder="Digite o valor" oninput="itotal.innerHTML = Number(iv.value) + Number(ibt.value)+ Number(ial.value) + Number(iac.value)+ Number(ibr.value)">
+                        
+                    </div>
+
+                    <div class="input-box">
+                        <label for="banhoetosa">Banho e Tosa</label>
+                        <input id="ibt" type="number" name="banhoetosa" placeholder="Digite o valor" oninput="itotal.innerHTML = Number(iv.value) + Number(ibt.value)+ Number(ial.value) + Number(iac.value)+ Number(ibr.value)">
+                    </div>
+                    <div class="input-box">
+                        <label for="alimentacao">Alimentação</label>
+                        <input id="ial" type="number" name="alimentacao" placeholder="Digite o valor" oninput="itotal.innerHTML = Number(iv.value) + Number(ibt.value)+ Number(ial.value) + Number(iac.value)+ Number(ibr.value)">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="acessorio">Acessório</label>
+                        <input id="iac" type="number" name="acessorio" placeholder="Digite o valor" oninput="itotal.innerHTML = Number(iv.value) + Number(ibt.value)+ Number(ial.value) + Number(iac.value)+ Number(ibr.value)">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="brinquedos">Brinquedos</label>
+                        <input id="ibr" type="number" name="brinquedos" placeholder="Digite o valor" oninput="itotal.innerHTML = Number(iv.value) + Number(ibt.value)+ Number(ial.value) + Number(iac.value)+ Number(ibr.value)">
+                    </div>
+
+                </div>
+               
+                <div class="output-box" id="output">
+                    <label for="itotal">Total:</label>
+                   <output name="total" id="itotal"type=>0R$ 
+                   </output>
+                </div>
+
+                <div class="gender-inputs">
+                    <div class="gender-title">
+
+                <div class="continue-button">
+                    <button><a href="/Pagina Principal/landpag.html"> Finalizar </a> </button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
