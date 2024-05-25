@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Petshops Locais </title>
+    <link rel="stylesheet" href="/parceiros/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2> Parceiros Planpet</h2>
+        <input type="text" id="estado" placeholder="Estado" required>
+        <input type="text" id="cidade" placeholder="Cidade" required>
+        <input type="text" id="bairro" placeholder="Bairro" required>
+        <button onclick="buscarPetshops()">Buscar</button>
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        function buscarPetshops() {
+            const estado = document.getElementById('estado').value;
+            const cidade = document.getElementById('cidade').value;
+            const bairro = document.getElementById('bairro').value;
+
+            // Simulação de busca no Google e exibição dos resultados
+            const resultadosFicticios = [
+                {
+                    nome: 'Iron dog',
+                    endereco: 'Av. Cangaíba, 818',
+                    telefone: '(11)95050-3334',
+                    site: 'https://www.facebook.com/irondogpetshop/'
+                },
+                {
+                    nome: 'Casa do Pet Amigos Para Sempre',
+                    endereco: 'Av. Cangaíba, 1766 ',
+                    telefone: '(11)94448-4130',
+                    site: 'https://www.instagram.com/studiopet_amigosparasempre/'
+                }
+            ];
+
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+            resultadosFicticios.forEach(petshop => {
+                const petshopDiv = document.createElement('div');
+                petshopDiv.classList.add('petshop');
+                petshopDiv.innerHTML = `
+                    <h3>${petshop.nome}</h3>
+                    <p>Endereço: ${petshop.endereco}</p>
+                    <p>Telefone: ${petshop.telefone}</p>
+                    <a href="${petshop.site}" target="_blank">Visitar site</a>
+                `;
+                resultsDiv.appendChild(petshopDiv);
+            });
+        }
+    </script>
+</body>
+
+</html>
